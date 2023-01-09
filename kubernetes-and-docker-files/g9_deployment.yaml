@@ -1,0 +1,23 @@
+#define the pods that should be running. in this case, a nginx webserver is started
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: g9deployment
+  namespace: group09
+  labels:
+    app: g9
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: g9
+  template:
+    metadata:
+      labels:
+        app: g9
+    spec:
+      containers:
+      - name: g9container
+        image: gaodaxixixi/try2:firstversion 
+        ports:
+        - containerPort: 8051
